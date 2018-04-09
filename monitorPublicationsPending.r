@@ -10,7 +10,8 @@ check {
 
         foreach(*row in SELECT COLL_MODIFY_TIME
                         WHERE  META_COLL_ATTR_NAME  = 'org_vault_status'
-                        AND    META_COLL_ATTR_VALUE = 'APPROVED_FOR_PUBLICATION') {
+                        AND    META_COLL_ATTR_VALUE = 'APPROVED_FOR_PUBLICATION'
+                        AND    COLL_NAME like '/$rodsZoneClient/home') {
                 *time = *row.COLL_MODIFY_TIME;
 
                 if((int(*currentTime)) - int(*time) > *allowedTimeDiff) {
@@ -20,7 +21,8 @@ check {
 
         foreach(*row in SELECT COLL_MODIFY_TIME
                         WHERE  META_COLL_ATTR_NAME  = 'org_vault_status'
-                        AND    META_COLL_ATTR_VALUE = 'PENDING_DEPUBLICATION') {
+                        AND    META_COLL_ATTR_VALUE = 'PENDING_DEPUBLICATION'
+                        AND    COLL_NAME like '/$rodsZoneClient/home') {
                 *time = *row.COLL_MODIFY_TIME;
 
                 if((int(*currentTime)) - int(*time) > *allowedTimeDiff) {
@@ -30,7 +32,8 @@ check {
 
         foreach(*row in SELECT COLL_MODIFY_TIME
                         WHERE  META_COLL_ATTR_NAME  = 'org_vault_status'
-                        AND    META_COLL_ATTR_VALUE = 'PENDING_REPUBLICATION') {
+                        AND    META_COLL_ATTR_VALUE = 'PENDING_REPUBLICATION'
+                        AND    COLL_NAME like '/$rodsZoneClient/home') {
                 *time = *row.COLL_MODIFY_TIME;
 
                 if((int(*currentTime)) - int(*time) > *allowedTimeDiff) {
@@ -40,7 +43,8 @@ check {
 
         foreach(*row in SELECT COLL_MODIFY_TIME
                         WHERE  META_COLL_ATTR_NAME  = 'org_cronjob_publication_update'
-                        AND    META_COLL_ATTR_VALUE = 'CRONJOB_PENDING') {
+                        AND    META_COLL_ATTR_VALUE = 'CRONJOB_PENDING'
+                        AND    COLL_NAME like '/$rodsZoneClient/home') {
                 *time = *row.COLL_MODIFY_TIME;
 
                 if((int(*currentTime)) - int(*time) > *allowedTimeDiff) {
