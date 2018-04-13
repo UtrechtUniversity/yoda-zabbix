@@ -1,5 +1,5 @@
 # \file      monitorPublicationsPending.r
-# \brief     Counts the number of pending (de/re)publication(s) or a publication metadata change(s)
+# \brief     Counts the number of pending (de/re)publication(s) or publication of metadata change(s)
 #            that are pending longer then allowedTimeDiff parameter.
 # \author    Niek Bats
 # \copyright Copyright (c) 2018, Utrecht University. All rights reserved.
