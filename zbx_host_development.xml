@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>3.4</version>
+    <date>2018-04-13T15:35:14Z</date>
+    <groups>
+        <group>
+            <name>Development-Yoda</name>
+        </group>
+    </groups>
+    <hosts>
+        <host>
+            <host>combined</host>
+            <name>combined</name>
+            <description/>
+            <proxy/>
+            <status>0</status>
+            <ipmi_authtype>-1</ipmi_authtype>
+            <ipmi_privilege>2</ipmi_privilege>
+            <ipmi_username/>
+            <ipmi_password/>
+            <tls_connect>2</tls_connect>
+            <tls_accept>2</tls_accept>
+            <tls_issuer/>
+            <tls_subject/>
+            <tls_psk_identity>PSK-combined.yoda.test</tls_psk_identity>
+            <tls_psk>fb1e6e42f23b34eb194a4d2290c14f4070f60ef4735b3ecb41bc0ace0fc168aab20ea501d7d22746cbce6ae2b2c19f917d384763930dc11a50adab063bfcf59712aa5e84abc82a4d5b9c9d422d095a592afb714602af99e66fd403d8683aba7116097580bd1cc33da68dada4d084931a43a97e7d376b80c309d208618939c4b007a146bdfef52300dc086023fd90c17307aa07b0cef9ce1a68d689dc7f0305a23a28d2f33d78efe4daa7adfa6508f0aba4da50dad6e340b9cb3470796198bc1ce1da9140968a1bc264c1318bdec389b2a0a23b9f2ebf4ad5db56ae3fb3ca5d34b3a57c9cd776bcfb36be69089561d087b5f0a65e8e0fc9f4fff25e98cd7e5699</tls_psk>
+            <templates>
+                <template>
+                    <name>Template App Yoda</name>
+                </template>
+            </templates>
+            <groups>
+                <group>
+                    <name>Development-Yoda</name>
+                </group>
+            </groups>
+            <interfaces>
+                <interface>
+                    <default>1</default>
+                    <type>1</type>
+                    <useip>1</useip>
+                    <ip>0.0.0.0</ip>
+                    <dns/>
+                    <port>0</port>
+                    <bulk>1</bulk>
+                    <interface_ref>if1</interface_ref>
+                </interface>
+            </interfaces>
+            <applications/>
+            <items/>
+            <discovery_rules/>
+            <httptests/>
+            <macros/>
+            <inventory/>
+        </host>
+    </hosts>
+</zabbix_export>
