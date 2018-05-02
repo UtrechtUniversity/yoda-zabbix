@@ -9,7 +9,7 @@
 filepaths=$(sudo -u irods ls /var/lib/irods/iRODS/server/log/rodsLog.* | tail -n 2)
 
 # Gets current month and day.
-monthDay=$(date +"%b %d")
+monthDay=$(date +"%b %e")
 
 # Get lines containing error and month day.
 echo $(sudo -u irods grep "$monthDay" $filepaths | grep "ERROR" | wc -l)
