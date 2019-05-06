@@ -16,3 +16,4 @@ zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/dailyPortalUsers.sh
 zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/hourlyPortalUsers.sh
 zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/currentFiles.sh
 zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/irodsServiceCheck.sh
+zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/checkCertificateLocal.sh
