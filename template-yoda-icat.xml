@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2023-01-30T09:36:46Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template App Yoda 1.4 icat Active</template>
+            <name>Template App Yoda 1.4 icat Active</name>
+            <description>yoda items</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>App Yoda-1.4</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>yoda.concurrentirodsclientconnections</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.concurrentirodsclientconnections</key>
+                    <delay>60s</delay>
+                    <description>Returns the number of actual concurrent irods client connections</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.concurrentirodsusers</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.concurrentirodsusers</key>
+                    <delay>60s</delay>
+                    <description>Returns the number of unique iRods users that have one or more active connections. (user names with # or space excluded).</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.currentfiles</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.currentfiles</key>
+                    <description>gets the current number of files from the irods database</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.dailyportalusers</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.dailyportalusers</key>
+                    <description>Number of unique portal users in the previous day</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.dailyrodslogerrors</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.dailyrodslogerrors</key>
+                    <description>Returns the number of lines with ERROR in the rodsLog of the current day.</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.dailywebdavusers</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.dailywebdavusers</key>
+                    <description>Number of unique webdav users in the previous day</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.delayedrules.count</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.delayedrules.count</key>
+                    <delay>60s</delay>
+                    <description>Returns the number of delayed rules in the queue.</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.delayedrules.variation</name>
+                    <type>CALCULATED</type>
+                    <key>yoda.delayedrules.variation</key>
+                    <delay>30s</delay>
+                    <value_type>FLOAT</value_type>
+                    <params>last(yoda.delayedrules.count) - prev(yoda.delayedrules.count)</params>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.externalusers.count</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.externalusers.count</key>
+                    <delay>70s</delay>
+                    <description>Returns the number of users that are not a &lt;user&gt;@uu.nl</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.hourlyportalusers</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.hourlyportalusers</key>
+                    <description>Number of unique Portal Users in the past hour</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.hourlyrodslogerrors</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.hourlyrodslogerrors</key>
+                    <delay>60s</delay>
+                    <description>Returns the number of ERROR lines in the rodsLog of the current hour.</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}&gt;1000</expression>
+                            <name>Hourly rodslog errors exceeds 1000 errors on {HOST.NAME}</name>
+                            <priority>WARNING</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>yoda.hourlywebdavusers</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.hourlywebdavusers</key>
+                    <description>Number of unique webdav users in the last hour</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.internalusers.count</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.internalusers.count</key>
+                    <delay>70s</delay>
+                    <description>Returns the number of  &lt;user&gt;@uu.nl users</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.irodsgroups.count</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.irodsgroups.count</key>
+                    <delay>70s</delay>
+                    <description>Returns the number of iRods groups</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.irodsservicecheck</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.irodsservicecheck</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <description>Returns basic irods server information or connection failure (port 1247) if information could not be retrieved using imisvsvrinfo icommand (local irodsservice not running)</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                    <triggers>
+                        <trigger>
+                            <expression>{str(ERROR: _rcConnect: connectToRhost error,#5)}=1</expression>
+                            <name>Irods connection is unavailable on {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>yoda.killedprocesses.count</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.killedprocesses.count</key>
+                    <delay>60s</delay>
+                    <description>Returns the number of lines with &quot;Killed process&quot; in /var/lib/messages of the current day</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}&gt;0</expression>
+                            <name>process was killed due to lack of memory on {HOST.NAME}</name>
+                            <priority>HIGH</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>yoda.listorphanedgroups</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.listorphanedgroups</key>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <description>Returns a list of Orphaned Groups&#13;
+An orphaned group is a group that has no groupmanager with a @.uu.nl username.</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.publications.pending[*]</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.publications.pending[60]</key>
+                    <delay>60s</delay>
+                    <description>Returns the number of publications that should have been published, republished, depublished or updated after a change of the metadata by the datamanager after a number of seconds.&#13;
+&#13;
+The parameter specifies the number of seconds that publications are considered to be published, depublished, republished of updated (86400 being 1 day)</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.publications.pending[*]</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.publications.pending[86400]</key>
+                    <delay>60s</delay>
+                    <status>DISABLED</status>
+                    <description>Returns the number of publications that should have been published, republished, depublished or updated after a change of the metadata by the datamanager after a number of seconds.&#13;
+&#13;
+The parameter specifies the number of seconds that publications are considered to be published, depublished, republished of updated (86400 being 1 day)</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.replicationerrors.count</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.replicationerrors.count</key>
+                    <delay>60s</delay>
+                    <description>Returns number of replication errors in the last hour</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+                <item>
+                    <name>yoda.test.userparam[*]</name>
+                    <type>ZABBIX_ACTIVE</type>
+                    <key>yoda.test.userparam[15]</key>
+                    <delay>60s</delay>
+                    <description>for testing purposes. When the parameter in the key is changed, the new value should be returned (this may take several minutes).</description>
+                    <applications>
+                        <application>
+                            <name>App Yoda-1.4</name>
+                        </application>
+                    </applications>
+                    <request_method>POST</request_method>
+                </item>
+            </items>
+            <screens>
+                <screen>
+                    <name>yoda.currentfiles</name>
+                    <hsize>1</hsize>
+                    <vsize>1</vsize>
+                </screen>
+                <screen>
+                    <name>yoda.listorphanedgroups</name>
+                    <hsize>1</hsize>
+                    <vsize>1</vsize>
+                    <screen_items>
+                        <screen_item>
+                            <resourcetype>3</resourcetype>
+                            <style>0</style>
+                            <resource>
+                                <key>yoda.listorphanedgroups</key>
+                                <host>Template App Yoda 1.4 icat Active</host>
+                            </resource>
+                            <width>500</width>
+                            <height>100</height>
+                            <x>0</x>
+                            <y>0</y>
+                            <colspan>1</colspan>
+                            <rowspan>1</rowspan>
+                            <elements>25</elements>
+                            <valign>1</valign>
+                            <halign>0</halign>
+                            <dynamic>0</dynamic>
+                            <sort_triggers>0</sort_triggers>
+                            <url/>
+                            <application/>
+                            <max_columns>3</max_columns>
+                        </screen_item>
+                    </screen_items>
+                </screen>
+            </screens>
+        </template>
+    </templates>
+    <triggers>
+        <trigger>
+            <expression>{Template App Yoda 1.4 icat Active:yoda.delayedrules.variation.count(1h,0,&quot;ge&quot;)} &gt; 0 and {Template App Yoda 1.4 icat Active:yoda.delayedrules.variation.count(1h,0,&quot;lt&quot;)}=0 and {Template App Yoda 1.4 icat Active:yoda.delayedrules.count.count(1h,0,&quot;eq&quot;)}=0</expression>
+            <name>delayedruleengine stuck for more than 60 minutes on {HOST.NAME}</name>
+            <priority>HIGH</priority>
+        </trigger>
+    </triggers>
+    <graphs>
+        <graph>
+            <name>yoda.all.items 1.4</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.concurrentirodsclientconnections</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.concurrentirodsusers</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <color>2774A4</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.dailyrodslogerrors</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <color>A54F10</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.delayedrules.count</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>4</sortorder>
+                    <color>6C59DC</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.externalusers.count</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>5</sortorder>
+                    <color>AC8C14</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.hourlyrodslogerrors</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>6</sortorder>
+                    <color>611F27</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.internalusers.count</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>7</sortorder>
+                    <color>F230E0</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.irodsgroups.count</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>8</sortorder>
+                    <color>BB2A02</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.test.userparam[15]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>9</sortorder>
+                    <color>5A2B57</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.killedprocesses.count</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>10</sortorder>
+                    <color>89ABF8</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.replicationerrors.count</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>11</sortorder>
+                    <color>89ABF8</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.publications.pending[60]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>15</sortorder>
+                    <color>2B5429</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.hourlyrodslogerrors</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.concurrentirodsclientconnections</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.concurrentirodsclientconnections</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.concurrentirodsusers</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.concurrentirodsusers</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.currentdaykilledprocesses</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.killedprocesses.count</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.currentdayrodslogerrors</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.dailyrodslogerrors</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.currenthourrodslogerrors</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.hourlyrodslogerrors</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.delayedrules.count</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.delayedrules.count</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.externalusers.count</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.externalusers.count</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.internalusers.count</name>
+            <graph_items>
+                <graph_item>
+                    <color>F63100</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.internalusers.count</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.irodsgroups.count</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.irodsgroups.count</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.publications.pending</name>
+            <graph_items>
+                <graph_item>
+                    <color>F63100</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.publications.pending[60]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.replicationerrors.count</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.replicationerrors.count</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+        <graph>
+            <name>yoda.test.userparameter</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>Template App Yoda 1.4 icat Active</host>
+                        <key>yoda.test.userparam[15]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
