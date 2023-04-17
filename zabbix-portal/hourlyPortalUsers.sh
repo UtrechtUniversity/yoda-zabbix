@@ -8,4 +8,4 @@
 filepath=/var/log/httpd/portal_access.log
 
 # counts lines containing login HTTP in the past hour
-/etc/zabbix/zabbix_agentd.d/read-apache-logs.py --last hour "$filepath" | grep -c '"POST /user/gate HTTP/.*" 302'
+/etc/zabbix/zabbix_agentd.d/read-apache-logs.py --last hour "$filepath" | grep -c '"POST /user/gate[^ ]* HTTP/[^ ]*" 302'
