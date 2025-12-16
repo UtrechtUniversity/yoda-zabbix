@@ -22,19 +22,19 @@ server manually.
 
 For additional information about using pre-shared keys, please refer to:
 
-https://www.zabbix.com/documentation/3.4/manual/encryption/using_pre_shared_keys
+https://www.zabbix.com/documentation/current/en/manual/encryption/using_pre_shared_keys
 
 ## Implementing additional checks
 
 The monitoring scripts are currently organized by role. 
 
 A new item needs to be added to the user parameter file of its role: `yoda_role.userparams.conf`, where `role` should be one
-of `system`, `portal`, `irodscommon`, `icat` or `resource`.
+of `system` or `irodscommon`.
 
-Example from `yoda_icat.userparams.conf`:
+Example:
 
 ```
-UserParameter=yoda.delayedrules.count,sudo /etc/zabbix/zabbix_agentd.d/monitorDelayedRules.sh
+UserParameter=yoda.killedprocesses.count,sudo /etc/zabbix/zabbix_agentd.d/monitorKilledProcesses.sh
 ```
 
 Use `sudo` if the zabbix agent requires sudo permissions to execute the command, and add the command to the `yoda-zabbix-role-sudoers` file
@@ -43,15 +43,8 @@ of the role.
 Example:
 
 ```
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/monitorDelayedRules.sh
+zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/monitorKilledProcesses.sh
 ```
-
-Ensure the yoda-zabbix-role-sudoers file has no syntax errors and has been tested. A syntax error can only be corrected with a
-re-install! Duplicate lines are not allowed.
-
-## Change log
-
-See [Change log](CHANGELOG.md).
 
 ## License
 

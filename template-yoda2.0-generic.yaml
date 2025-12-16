@@ -1,0 +1,62 @@
+zabbix_export:
+  version: '7.4'
+  template_groups:
+    - uuid: 5a6b54fce3434595aa336c83aaaae4c1
+      name: Yoda
+  templates:
+    - uuid: 32deae7638754871af7cd11fca39e17a
+      template: 'Yoda 2.0 generic'
+      name: 'Yoda 2.0 generic'
+      description: 'Algemeen template voor Yoda 2.0 en hoger'
+      groups:
+        - name: Yoda
+      items:
+        - uuid: 75d4cd5eb51d40a4be708bb6fd4bb7d5
+          name: yoda.dailyrodslogerrors
+          type: ZABBIX_ACTIVE
+          key: yoda.dailyrodslogerrors
+          delay: 15m
+          description: 'Returns the number of lines with ERROR in the rodsLog of the current day.'
+          timeout: 20s
+          tags:
+            - tag: Application
+              value: Yoda
+        - uuid: 673dc0e97ca7461497456afc6d8b752e
+          name: yoda.hourlyrodslogerrors
+          type: ZABBIX_ACTIVE
+          key: yoda.hourlyrodslogerrors
+          delay: 5m
+          units: yoda.hourlyrodslogerrors
+          description: 'Returns the number of ERROR lines in the rodsLog of the current hour.'
+          timeout: 20s
+          tags:
+            - tag: Application
+              value: Yoda
+          triggers:
+            - uuid: 1cd1020261194fa3b6928ef1b4488949
+              expression: 'last(/Yoda 2.0 generic/yoda.hourlyrodslogerrors)>1000'
+              name: 'Hourly rodslog errors exceeds 1000 errors on {HOST.NAME}'
+              priority: WARNING
+              manual_close: 'YES'
+              tags:
+                - tag: Application
+                  value: Yoda
+        - uuid: 54be8841c44a462aa745c7ac6f3dc133
+          name: yoda.killedprocesses.count
+          type: ZABBIX_ACTIVE
+          key: yoda.killedprocesses.count
+          delay: 5m
+          description: 'Returns the number of lines with "Killed process" in /var/lib/messages of the current day'
+          timeout: 20s
+          tags:
+            - tag: Application
+              value: Yoda
+          triggers:
+            - uuid: 9af4c39209fc4fb897732e1fa7258a80
+              expression: 'last(/Yoda 2.0 generic/yoda.killedprocesses.count)>0'
+              name: 'process was killed due to lack of memory on {HOST.NAME}'
+              priority: HIGH
+              manual_close: 'YES'
+              tags:
+                - tag: Application
+                  value: Yoda
