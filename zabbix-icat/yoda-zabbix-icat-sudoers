@@ -1,8 +1,0 @@
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/monitorDelayedRules.sh
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/internalUsersCount.sh
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/irodsGroupsCount.sh
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/externalUsersCount.sh
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/monitorPublicationsPending.sh
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/listOrphanedGroups.sh
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/replicationErrors.sh
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/currentFiles.sh
