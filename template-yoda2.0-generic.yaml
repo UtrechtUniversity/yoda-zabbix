@@ -41,6 +41,16 @@ zabbix_export:
               tags:
                 - tag: Application
                   value: Yoda
+        - uuid: ae9477c7f419441a867883d989e09dd9
+          name: 'iRODS is available'
+          type: ZABBIX_ACTIVE
+          key: yoda.irodsavailable
+          timeout: 10s
+          triggers:
+            - uuid: 24ff70e1f7434bb9a2f486da00663c36
+              expression: 'last(/Yoda 2.0 generic/yoda.irodsavailable,#1)<>0'
+              name: 'iRODS is not available'
+              priority: HIGH
         - uuid: 54be8841c44a462aa745c7ac6f3dc133
           name: yoda.killedprocesses.count
           type: ZABBIX_ACTIVE
@@ -60,3 +70,14 @@ zabbix_export:
               tags:
                 - tag: Application
                   value: Yoda
+        - uuid: 8d2953624b9c469288fb467161013a18
+          name: 'Number of resources with inaccessible vault directories'
+          type: ZABBIX_ACTIVE
+          key: yoda.resourcemountpoints
+          delay: 5m
+          timeout: 30s
+          triggers:
+            - uuid: 5d2d2204ae0f4385a2d30c27d7f19359
+              expression: 'last(/Yoda 2.0 generic/yoda.resourcemountpoints,#1)>0'
+              name: 'Some iRODS vault directories are not accessible'
+              priority: HIGH
