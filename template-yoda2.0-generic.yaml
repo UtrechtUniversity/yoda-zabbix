@@ -26,7 +26,6 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: yoda.hourlyrodslogerrors
           delay: 5m
-          units: yoda.hourlyrodslogerrors
           description: 'Returns the number of ERROR lines in the rodsLog of the current hour.'
           timeout: 20s
           tags:
