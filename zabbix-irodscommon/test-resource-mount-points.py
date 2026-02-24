@@ -17,9 +17,9 @@
    vault directory, and will therefore not detect any issues.
 """
 
+import argparse
 import socket
 import subprocess
-import sys
 from typing import Dict, List, Optional, Tuple
 
 
@@ -73,7 +73,7 @@ def get_resource_data() -> Optional[List[Dict[str, str]]]:
 
 
 def get_num_local_ufs_vault_path_errors(
-        resourcedata: List[Dict[str, str]], hostname: str) -> int:
+        resourcedata: List[Dict[str, str]], hostname: str, debugmode: bool = False) -> int:
     num_errors: int = 0
     for resource in resourcedata:
         resource_desc = resource.get("resource name", "unknown resource")
@@ -83,22 +83,32 @@ def get_num_local_ufs_vault_path_errors(
                 resource_loc == hostname):
             path = resource.get("vault", None)
             if path is None:
-                print(
-                    sys.stderr,
-                    f"Warning: UFS resource without vault path: {resource_desc}")
+                if debugmode:
+                    print(f"UFS resource without vault path: {resource_desc}")
             elif not directory_exists_and_fs_accessible(path, 2):
+                if debugmode:
+                    print(f"UFS resource with inaccessible vault path: {resource_desc}")
                 num_errors += 1
     return num_errors
 
 
+def get_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--debug', action='store_const', const=True, default=False,
+                        help='Print debug output regarding check failures, if any.')
+    return parser.parse_args()
+
+
 def main():
+    args = get_args()
     resourcedata = get_resource_data()
 
     if resourcedata is None:
         print(0)
     else:
         num_errors = get_num_local_ufs_vault_path_errors(resourcedata,
-                                                         get_hostname())
+                                                         get_hostname(),
+                                                         args.debug)
         print(num_errors)
 
 
