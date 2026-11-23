@@ -21,4 +21,5 @@ then
     grep "^$datestamp " /var/log/messages | grep -c "kernel: Out of memory: Killed process"
 else
     echo "Error: unknown distribution: $NAME"
+    exit 1
 fi
