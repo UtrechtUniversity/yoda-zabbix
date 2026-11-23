@@ -1,1 +1,1 @@
-zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agentd.d/monitorKilledProcesses.sh
+zabbix ALL=NOPASSWD: /etc/zabbix/zabbix_agent2.d/monitorKilledProcesses.sh
