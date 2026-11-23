@@ -55,7 +55,7 @@ zabbix_export:
           type: ZABBIX_ACTIVE
           key: yoda.killedprocesses.count
           delay: 5m
-          description: 'Returns the number of lines with "Killed process" in /var/lib/messages of the current day'
+          description: 'Returns the number of lines with "Killed process" in /var/log/messages or /var/log/syslog of the current day'
           timeout: 20s
           tags:
             - tag: Application
